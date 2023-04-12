@@ -5,4 +5,4 @@
 **So comming to now, it's still garbage and I don't understand what I have ones writen**
 ![My France Octocat](my_octocat.png)
 # Help
-**I don't know why if and if way anybody wuold want to contribute here, but if you want to do so. Your help is welcome!**
+**I don't know if (and when why) anybody would want to contribute here, but if you want to, do so. Your help is welcome!**
