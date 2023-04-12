@@ -2,6 +2,7 @@ from tkinter import *
 from functools import partial
 
 from backend import Backend
+from acount import Acount
 
 class Register:
     def __init__(self) -> None:
@@ -11,8 +12,11 @@ class Register:
         ac = self.backend.get_ac_by_name(username.get())
         if ac == []:
             self.errorLabel.config(text="")
+            ac = Acount(username.get(), password.get(),r"C:\Users\chuon\Pictures\Screenshots\PileUp 26.12.2022 12_39_52.png",r"C:\Users\chuon\Pictures\Screenshots\PileUp 26.12.2022 12_39_52.png")
+            self.backend.insert_ac(ac)
+            self.closeWindow()
         else:
-            self.ac = []
+            ac = []
             self.errorLabel.config(text="Username already exist")
     
     def closeWindow(self):
