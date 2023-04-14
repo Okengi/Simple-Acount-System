@@ -1,4 +1,4 @@
-import acountsystemlip as acs
+import acountsystemlip as ac
 
-frontend = acs.Frontend()
-frontend.login()
+c = ac.acount_system("example_systme")
+c.start()

@@ -1,5 +1,4 @@
 import sqlite3
-from acount import Acount
 
 def create_connection(db_file):
     """ create a database connection to the SQLite database
@@ -16,36 +15,38 @@ def create_connection(db_file):
 
     return conn
 
-def create_table(conn, create_table_sql):
-    """ create a table from the create_table_sql statement
-    :param conn: Connection object
-    :param create_table_sql: a CREATE TABLE statement
-    :return:
+def create_table(conn):
     """
-    try:
-        c = conn.cursor()
-        c.execute(create_table_sql)
-    except Exception as e:
-        print(e)
-
-def main():
-    database = "acounts_db.db"
-
+    :param conn: Connection object
+    """
     create_acount = """ CREATE TABLE IF NOT EXISTS acounts (
                                         username text PRIMARY KEY,
                                         password text NOT NULL,
                                         mainImagePath text,
                                         profileImagePath text 
                                     ); """
+    try:
+        c = conn.cursor()
+        c.execute(create_acount)
+    except Exception as e:
+        print(e)
 
-    conn = create_connection(database)
+# def main():
+#     database = "acounts_db.db"
 
-    
+#     create_acount = """ CREATE TABLE IF NOT EXISTS acounts (
+#                                         username text PRIMARY KEY,
+#                                         password text NOT NULL,
+#                                         mainImagePath text,
+#                                         profileImagePath text 
+#                                     ); """
 
-    if conn is not None:
-        create_table(conn, create_acount)
-    else:
-        print("Error! cannot create the database connection.")
+#     conn = create_connection(database)
+
+#     if conn is not None:
+#         create_table(conn, create_acount)
+#     else:
+#         print("Error! cannot create the database connection.")
     
 
 # def insert_ac(conn, ac):
@@ -79,6 +80,3 @@ def main():
 #             c.execute("DELETE from acounts WHERE first = :first AND last=:last", {'first':ac.first, 'last':ac.last})
 #         except Exception as e:
 #             print(e)
-
-if __name__ == '__main__':
-    main()
