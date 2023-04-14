@@ -55,3 +55,6 @@ docs/_build/
 
 # PyBuilder
 target/
+
+# Example_System used for testing
+example_system/
