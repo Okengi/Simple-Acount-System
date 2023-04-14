@@ -27,8 +27,8 @@ class Login:
             self.errorLabel.config(text="")
             if ac[0][1] == password.get():
                 self.ac = ac
-                self.closeWindow()
                 self.errorLabel.config(text="")
+                self.closeWindow()
             else:
                 self.errorLabel.config(text="Password wronge")
         else:
@@ -65,7 +65,10 @@ class Login:
         self.errorLabel.grid(row=2, column=0, columnspan=2)
 
         self.tkWindow.mainloop()
-        return self.ac
+        try:
+            return self.ac
+        except AttributeError:
+            return [] # Only happens, because user closed window without previously pressing login button. 
 
     def closeWindow(self):
         self.tkWindow.destroy()

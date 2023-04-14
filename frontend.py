@@ -1,7 +1,7 @@
 from tkinter import *
 from tkinter.filedialog import askopenfilename
 from PIL import Image, ImageTk
-import os
+import sys
 
 from backend import Backend
 from login import Login
@@ -18,6 +18,7 @@ class Frontend:
     def login(self):
         """
             The login funkition calls the login function of the Login variable.
+            To start the system.
         """
         ac = self.loginn.login()
         self.main(ac)
@@ -50,7 +51,11 @@ class Frontend:
 
 
     def main(self, ac: list):
-        self.acount = Acount(ac[0][0], ac[0][1], ac[0][2], ac[0][3])
+        try:
+            self.acount = Acount(ac[0][0], ac[0][1], ac[0][2], ac[0][3])
+        except IndexError:
+            print("ERROR: Not a valid acount!")
+            sys.exit()
 
         self.root = Tk()
         self.root.geometry("800x900")
