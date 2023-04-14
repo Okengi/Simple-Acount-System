@@ -3,9 +3,9 @@ from tkinter.filedialog import askopenfilename
 from PIL import Image, ImageTk
 import sys
 
-from backend import Backend
-from login import Login
-from acount import Acount
+from .backend import Backend
+from .login import Login
+from .acount import Acount
 
 class Frontend:
     """

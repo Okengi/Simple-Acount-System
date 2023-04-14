@@ -1,8 +1,8 @@
 from tkinter import *
 from functools import partial
 
-from backend import Backend
-from acount import Acount
+from .backend import Backend
+from .acount import Acount
 
 class Register:
     def __init__(self) -> None:

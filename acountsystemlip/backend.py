@@ -1,5 +1,5 @@
 import sqlite3
-from acount import Acount
+from .acount import Acount
 
 class Backend:
     def __init__(self) -> None:

@@ -1,8 +1,8 @@
 from tkinter import *
 from functools import partial
 
-from backend import Backend
-from register import Register
+from .backend import Backend
+from .register import Register
 
 class Login:
     """
