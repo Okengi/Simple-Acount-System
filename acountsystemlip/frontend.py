@@ -11,9 +11,9 @@ class Frontend:
     """
         The Frontent class displays an acount. It get's it's information from the Backend class.
     """
-    def __init__(self) -> None:
-        self.backend = Backend()
-        self.loginn = Login()
+    def __init__(self, backend: Backend, login: Login) -> None:
+        self.backend = backend
+        self.loginn = login
     
     def login(self):
         """

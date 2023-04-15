@@ -1,5 +1,7 @@
 import sqlite3
 
+from .acount import Acount
+
 def create_connection(db_file):
     """ create a database connection to the SQLite database
         specified by db_file
@@ -31,6 +33,27 @@ def create_table(conn):
     except Exception as e:
         print(e)
 
+def insert_ac(conn: sqlite3.Connection, acount: Acount):
+    insert_acount = """ INSERT INTO acounts VALUES (
+                            :username,
+                            :passwort,
+                            :mainImagePath,
+                            :profileImagePath
+                            ) """
+    with conn:
+        try:
+            c = conn.cursor()
+            # c.execute("Select count(*) from acounts")
+            # id = c.fetchall()[0][0]
+            c.execute(insert_acount, {
+                'username': acount.username,
+                'passwort': acount.password,
+                'mainImagePath': acount.mainImagePath,
+                'profileImagePath': acount.profileImagePath
+                })
+        except Exception as e:
+            print(e)
+
 # def main():
 #     database = "acounts_db.db"
 
@@ -48,17 +71,6 @@ def create_table(conn):
 #     else:
 #         print("Error! cannot create the database connection.")
     
-
-# def insert_ac(conn, ac):
-#     with conn:
-#         try:
-#             c = conn.cursor()
-#             c.execute("Select count(*) from acounts")
-#             id = c.fetchall()[0][0]
-#             c.execute("INSERT INTO acounts VALUES (:id, :username, :passwort, :mainImagePath, :profileImagePath, :zoom)", {'id': id,'username': ac.username, 'passwort':ac.password, 'mainImagePath':ac.mainImagePath, 'profileImagePath':ac.profileImagePath, 'zoom':0.4})
-#         except Exception as e:
-#             print(e)
-        
 # def get_ac_by_name(c, ac):
 #     c.execute("SELECT * FROM acounts WHERE username=:last", {'last':ac.username})
 #     return c.fetchall()

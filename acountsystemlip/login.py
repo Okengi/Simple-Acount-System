@@ -8,12 +8,11 @@ class Login:
     """
         The Login class can login into an acount from the acounts_db.db database.
     """
-    def __init__(self) -> None:
-        self.backend = Backend()
-        self.register = Register()
+    def __init__(self, backend: Backend, register: Register) -> None:
+        self.backend = backend
+        self.register = register
     
     def startregister(self):
-        
         self.ac = self.register.register()
         self.closeWindow()
 

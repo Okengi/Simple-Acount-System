@@ -5,8 +5,8 @@ from .backend import Backend
 from .acount import Acount
 
 class Register:
-    def __init__(self) -> None:
-        self.backend = Backend()
+    def __init__(self, backend: Backend) -> None:
+        self.backend = backend
 
     def validateRegister(self, username, password):
         ac = self.backend.get_ac_by_name(username.get())

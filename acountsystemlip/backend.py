@@ -1,9 +1,8 @@
 import sqlite3
-from .acount import Acount
 
 class Backend:
-    def __init__(self) -> None:
-        self.conn = self.create_connection("acounts_db.db")
+    def __init__(self, db_file: str = "acounts_db.db") -> None:
+        self.conn = self.create_connection(db_file)
 
     def create_connection(self, db_file):
         conn = None
